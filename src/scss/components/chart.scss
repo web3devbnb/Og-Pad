@@ -1,0 +1,162 @@
+/*-------- Chart --------*/
+
+.chart {
+
+    &__title {
+        font-family: $font-stx;
+        color: #fff;
+        font-size: 20px;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 49%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 28px;
+
+        position: relative;
+    }
+
+    &__graph {
+        z-index: 2;
+        overflow: visible;
+    }
+
+    &__graph-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 6px 15px;
+        background: #191b20;
+        box-shadow: 0px 1px 2px #08090b;
+        border-radius: 3px;
+
+        font-size: 6px;
+
+        position: relative;
+    }
+
+    &__graph-label:before {
+        content: "";
+
+        width: 6px;
+        height: 6px;
+        margin-right: 3px;
+        background-color: currentColor;
+        border-radius: 50%;
+    }
+
+    &__graph-label:after {
+        content: "";
+
+        width: 10px;
+        height: 10px;
+
+        background-color: #191b20;
+        transform: rotateZ(45deg) translateX(-50%);
+
+        position: absolute;
+        top: 90%;
+        left: 50%;
+
+        border-radius: 3px;
+    }
+
+    &__graph-label span {
+        color: #fff;
+        z-index: 2;
+    }
+
+    &__image {
+        width: 32%;
+
+        position: absolute;
+
+        z-index: 1;
+    }
+
+    &__labels {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        width: 100%;
+        margin-top: 32px;
+    }
+
+    &__label {
+        display: flex;
+        align-items: center;
+        width: 50%;
+        cursor: pointer;
+    }
+
+    &__label:before {
+        content: "";
+
+        width: 48px;
+        height: 4px;
+        margin-right: 8px;
+
+        background-color: currentColor;
+        border-radius: 10px;
+
+        transition: filter 0.3s ease-out;
+    }
+
+    &__label:nth-child(n + 3) {
+        margin-top: 16px;
+    }
+
+    &__label-title {
+        font-size: 14px;
+        color: #fff;
+    }
+
+    &__label.active &__label-title {
+        text-decoration: underline;
+    }
+}
+
+@media (max-width: 1219px) and (min-width: 621px) {
+
+    .chart {
+
+        &__label-title {
+            font-size: 12px;
+        }
+
+        &__label:before {
+            width: 16px;
+        }
+
+        &__wrapper {
+            width: 70%;
+        }
+    }
+}
+
+@media (max-width: 479px) {
+
+    .chart {
+
+        &__graph-label {
+            font-size: 10px;
+        }
+    }
+}
+
+@media (max-width: 359px) {
+
+    .chart {
+
+        &__wrapper {
+            width: 66%;
+        }
+    }
+}

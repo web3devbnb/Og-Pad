@@ -1,0 +1,237 @@
+/*-------- Sidebar --------*/
+
+.sidebar {
+    width: 260px;
+    height: 100%;
+    padding-right: 0;
+
+    background: #191919;
+    box-shadow: 0px 4px 30px #121317;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    overflow: auto;
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+
+        height: 100%;
+        padding-top: 16px;
+        padding-bottom: 24px;
+
+        z-index: 2;
+        position: relative;
+    }
+
+    &__wrapper {
+        padding: 0 20px;
+    }
+
+    &__logo, &__logo-image {
+        display: block;
+    }
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 44px;
+
+        font-family: $font-r;
+        font-size: 14px;
+        color: #ffffff;
+
+        border-radius: 8px;
+    }
+
+    &__button--wallet {
+        margin-top: 24px;
+        border: 1px solid $red;
+    }
+
+    &__button--net {
+        margin-top: 20px;
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    &__button-icon {
+        margin-right: 12px;
+    }
+
+    &__menu {
+        margin-top: 24px;
+        margin-bottom: 30px;
+    }
+
+    &__menu-button {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+        height: 45px;
+
+        padding-left: 20px;
+        padding-right: 15px;
+
+        position: relative;
+
+        font-family: $font-r;
+        color: $mudy;
+        font-size: 14px;
+
+        transition: color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    &__menu-button.active:before {
+        content: "";
+        height: 100%;
+        width: 4px;
+
+        background: $red;
+        border-radius: 0px 15px 15px 0px;
+
+        position: absolute;
+        left: 0;
+    }
+
+    &__menu-button.active {
+        background: #492424;
+        color: #fff;
+    }
+
+    &__menu-button.active &__menu-arrow {
+        transform: rotateZ(180deg);
+    }
+
+    &__menu-button:not(&__menu-button.active):hover {
+        text-decoration: underline;
+    }
+
+    &__menu-arrow {
+        margin-left: auto;
+        color: #fff;
+    }
+
+    &__menu-icon {
+        margin-right: 14px;
+    }
+
+    &__submenu {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    &__submenu-list {
+        padding-left: 56px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        background: rgba(231, 45, 45, 0.05);
+    }
+
+    &__submenu-link {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        color: $mudy;
+    }
+
+    &__submenu-link:not(&__submenu-link--active):hover {
+        text-decoration: underline;
+    }
+
+    &__submenu-link.active {
+        color: #fff;
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        margin-top: auto;
+    }
+
+    &__switcher {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 1099px) and (min-width: 990px) {
+
+    .sidebar {
+        width: 200px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        &__wrapper {
+            padding: 0 15px;
+        }
+
+        &__menu-button {
+            height: 40px;
+            padding-left: 15px;
+            padding-right: 12px;
+        }
+
+        &__menu-icon {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        &__menu-arrow {
+            width: 12px;
+        }
+
+        &__submenu-list {
+            padding-left: 46px;
+        }
+
+        &__submenu-link {
+            height: 35px;
+        }
+    }
+}
+
+@media (max-width: 989px) {
+
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        z-index: 10;
+
+        transition: left 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+        &:before {
+            content: "";
+
+            width: 100vw;
+            height: 100vh;
+
+            background: rgba(11, 9, 9, 0.5);
+            backdrop-filter: blur(8px);
+
+            position: fixed;
+            top: 0;
+            bottom: 0;
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        &.opened:before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &.opened {
+            left: 0;
+        }
+    }
+}

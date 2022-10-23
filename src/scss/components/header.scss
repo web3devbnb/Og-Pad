@@ -1,0 +1,94 @@
+/*-------- Header --------*/
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 80px;
+    padding: 0 15px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 11;
+
+    background: #1A1A1A;
+
+    &:before {
+        content: "";
+        width: 100%;
+        height: 1px;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        background: radial-gradient(61.39% 50% at 50% 50%, #7D7C7C 0%, rgba(72, 69, 69, 0) 100%);
+    }
+
+    &.opened:before {
+        content: none;
+    }
+
+    &__logo, &__logo-image {
+        display: block;
+    }
+
+    &__mobile-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 44px;
+        height: 36px;
+
+        background: #202226;
+        border: 1px solid #484545;
+        border-radius: 6px;
+    }
+
+    &__mobile-button-wrapper {
+        width: 18px;
+        height: 2px;
+        color: #ffffff;
+        background-color: currentColor;
+        position: relative;
+        border-radius: 1px;
+    }
+
+    &__mobile-button-wrapper:before,
+    &__mobile-button-wrapper:after {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: currentColor;
+        position: absolute;
+        left: 0;
+        border-radius: 1px;
+        transition: transform 0.2s ease-out;
+    }
+
+    &__mobile-button-wrapper:before {
+        top: -6px;
+    }
+
+    &__mobile-button-wrapper:after {
+        bottom: -6px;
+    }
+
+    &__mobile-button.active &__mobile-button-wrapper {
+        background-color: transparent;
+    }
+
+    &__mobile-button.active &__mobile-button-wrapper:before {
+        top: unset;
+        transform: rotateZ(45deg);
+    }
+
+    &__mobile-button.active &__mobile-button-wrapper:after {
+        bottom: unset;
+        transform: rotateZ(-45deg);
+    }
+}

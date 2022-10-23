@@ -1,0 +1,32 @@
+/*-------- Countdown --------*/
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    &__column:not(:first-child) {
+        margin-left: 12px;
+    }
+
+    &__time {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 32px;
+        height: 32px;
+
+        border-radius: 6px;
+        background-color: rgba(255, 255, 255, 0.05);
+
+        font-family: $font-sb;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    &__title {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+}

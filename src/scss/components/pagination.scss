@@ -1,0 +1,52 @@
+/*-------- Pagination --------*/
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+
+    &__button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 36px;
+        height: 36px;
+
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 1px solid transparent;
+        border-radius: 50%;
+
+        font-family: $font-sb;
+        font-size: 14px;
+        color: #fff;
+
+        cursor: pointer;
+
+        transition: background-color 0.2s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    &__button:hover {
+        background: rgba(231, 45, 45, 0.1);
+    }
+
+    &__item.active &__button {
+        background: rgba(231, 45, 45, 0.1);
+        border: 1px solid rgba(231, 45, 45, 0.5);
+    }
+
+    &__item:not(:first-child) {
+        margin-left: 8px;
+    }
+
+    &__button--next &__icon {
+        transform: rotateZ(180deg);
+    }
+
+    &__icon {
+        width: 15px;
+        height: 15px;
+        color: #fff;
+    }
+}

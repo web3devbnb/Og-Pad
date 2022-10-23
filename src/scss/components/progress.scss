@@ -1,0 +1,59 @@
+/*-------- Progress --------*/
+
+.progress {
+    font-size: 14px;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+        color: #fff;
+    }
+
+    &__bar {
+        height: 6px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 100px;
+    }
+
+    &__track {
+        display: block;
+        height: 100%;
+        background-color: $green;
+        border-radius: 100px;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 8px;
+    }
+}
+
+.progress {
+
+    &--card {
+        margin-top: 16px;
+    }
+
+    &--card &__bar {
+        margin-top: 8px;
+    }
+}
+
+.progress {
+
+    &--airdrop &__bar {
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 1219px) {
+
+    .progress {
+
+        &--airdrop {
+            font-size: 12px;
+        }
+    }
+}
